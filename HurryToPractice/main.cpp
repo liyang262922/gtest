@@ -11,6 +11,17 @@ TEST(testCase, test0)
 	EXPECT_EQ(add(2, 3), 6);
 }
 
+TEST(testCase, test1)
+{
+	EXPECT_EQ(add(3, 3), 6);
+}
+
+TEST(testCase, test2)
+{
+	EXPECT_EQ(add(6, 3), 6);
+}
+
+
 int main(int argc,char** argv)
 {
 	testing::InitGoogleTest(&argc, argv);
