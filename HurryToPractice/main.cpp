@@ -1,25 +1,26 @@
-#include<iostream>
-#include<gtest/gtest.h>
+#include"test.h"
 
-int add(int a, int b)
+const std::wstring strVerTest = L"1.1.1.1000";
+
+std::wstring raiseVersion_ini(std::wstring strVer)
 {
-	return a + b;
+	if (RAISEVER::raiseVersion(strVer))
+	{
+		return strVer;
+	}
+	return L"";
 }
 
-TEST(testCase, test0)
+TEST(testCase, test)
 {
-	EXPECT_EQ(add(2, 3), 6);
-}
-
-TEST(testCase, test1)
-{
-	EXPECT_EQ(add(3, 3), 6);
+	EXPECT_EQ(raiseVersion_ini(strVerTest), L"1.1.1.1005");
 }
 
 TEST(testCase, test2)
 {
-	EXPECT_EQ(add(6, 3), 6);
+	EXPECT_EQ(raiseVersion_ini(strVerTest), L"1.1.1.1045");
 }
+
 
 
 int main(int argc,char** argv)
@@ -27,6 +28,5 @@ int main(int argc,char** argv)
 	testing::InitGoogleTest(&argc, argv);
 	RUN_ALL_TESTS();
 
-	getchar();
 	return 0;
 }
