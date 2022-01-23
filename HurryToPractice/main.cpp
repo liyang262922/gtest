@@ -1,31 +1,45 @@
 #include<iostream>
 #include<gtest/gtest.h>
+#include "testRegex.h"
 
-int add(int a, int b)
+TEST(testRegex,test1)
 {
-	return a + b;
+	EXPECT_EQ(isPe(L"helios.dll"), true);
 }
 
-TEST(testCase, test0)
+TEST(testRegex, test2)
 {
-	EXPECT_EQ(add(2, 3), 6);
+	EXPECT_EQ(isPe(L"helios.exe"), true);
 }
 
-TEST(testCase, test1)
+
+TEST(testRegex, test3)
 {
-	EXPECT_EQ(add(3, 3), 6);
+	EXPECT_EQ(isPe(L"helios.sys"), true);
 }
 
-TEST(testCase, test2)
+TEST(testRegex, test4)
 {
-	EXPECT_EQ(add(6, 3), 6);
+	EXPECT_EQ(isPe(L"helios.xml"), false);
+}
+
+TEST(testRegex, test5)
+{
+	EXPECT_EQ(isPe(L"helios.DLL"), true);
+}
+
+TEST(testRegex, test6)
+{
+	EXPECT_EQ(isPe(L"heliosdll"), false);
 }
 
 
 int main(int argc,char** argv)
 {
-	testing::InitGoogleTest(&argc, argv);
-	RUN_ALL_TESTS();
+	//testing::InitGoogleTest(&argc, argv);
+	//RUN_ALL_TESTS();
+
+	isPe(L"heliosfdddldll");
 
 	getchar();
 	return 0;
